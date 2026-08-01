@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Ticket Routing — Tara Suleiman</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Tara Suleiman</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-mobile" id="mobileMenu">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <div class="container">
+      <a href="index.html#projects" class="back-link">← All projects</a>
+      <p class="section-eyebrow">Project 03 · SaaS Operations · Business Analysis</p>
+      <h1>Automated Support<br>Ticket Routing System</h1>
+      <p class="project-hero-sub">Priority-based ticket triage and routing automation — with current/future state
+        process mapping showing how a shared inbox becomes an intelligent escalation engine.</p>
+      <div class="project-meta">
+        <div class="meta-item"><span class="meta-label">Stack</span><span>Make.com · Airtable · Typeform · Gmail ·
+            Slack</span></div>
+        <div class="meta-item"><span class="meta-label">Roles targeted</span><span>Business Analyst · Product
+            Coordinator · CX Ops</span></div>
+        <div class="meta-item"><span class="meta-label">Type</span><span>Process redesign + automation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container project-content">
+
+      <div class="project-section">
+        <h2>The Problem</h2>
+        <p>A growing SaaS company receives all customer support tickets via a shared Gmail inbox. Everything is manually
+          triaged — an enterprise client reporting a full API outage waits in the same queue as a free-tier user asking
+          about billing. Critical issues go unnoticed for hours, enterprise clients receive slow responses despite
+          paying for priority support, and there's no SLA visibility or escalation logic.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Process Mapping: Current vs Future State</h2>
+        <p>The process map is the core BA deliverable here — translating operational chaos into a documented,
+          stakeholder-ready redesign before a single automation is built.</p>
+        <div class="state-comparison">
+          <div class="state-box state-current">
+            <h4>❌ Current State</h4>
+            <ul>
+              <li>Single shared inbox, no triage logic</li>
+              <li>Manual reading to determine priority</li>
+              <li>No routing — first available agent handles everything</li>
+              <li>Enterprise clients wait same as free tier</li>
+              <li>No SLA tracking or escalation triggers</li>
+              <li>Response time: 2 hours to 3 days, unpredictable</li>
+            </ul>
+          </div>
+          <div class="state-arrow">→</div>
+          <div class="state-box state-future">
+            <h4>✓ Future State</h4>
+            <ul>
+              <li>Structured intake form captures priority at submission</li>
+              <li>Make.com router fires instantly on submission</li>
+              <li>Enterprise → senior agent + Slack #enterprise channel</li>
+              <li>Critical/outage → #incidents + immediate escalation</li>
+              <li>Auto-acknowledgment sent within 60 seconds</li>
+              <li>All tickets logged to Airtable with SLA deadline</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Replace with your Lucidchart diagram screenshots -->
+        <div class="screenshot-grid">
+          <figure>
+            <img src="assets/images/p3-current-state.png" alt="Current state process diagram" />
+            <figcaption>Current state — manual, unpredictable triage</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/p3-future-state.png" alt="Future state process diagram" />
+            <figcaption>Future state — automated routing and escalation</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>The Make.com Automation</h2>
+        <div class="router-paths">
+          <div class="router-header">
+            <span>Typeform submission triggers Make.com</span>
+          </div>
+          <div class="router-path path-enterprise">
+            <span class="path-condition">Plan = Enterprise</span>
+            <span class="path-arrow">→</span>
+            <span class="path-action">Gmail (senior agent) + Slack #enterprise-support</span>
+          </div>
+          <div class="router-path path-billing">
+            <span class="path-condition">Category = Billing</span>
+            <span class="path-arrow">→</span>
+            <span class="path-action">Gmail (billing team)</span>
+          </div>
+          <div class="router-path path-critical">
+            <span class="path-condition">Category = Bug + Priority = Critical</span>
+            <span class="path-arrow">→</span>
+            <span class="path-action">Slack #incidents + immediate escalation</span>
+          </div>
+          <div class="router-path path-standard">
+            <span class="path-condition">All other tickets</span>
+            <span class="path-arrow">→</span>
+            <span class="path-action">Standard queue + auto-acknowledgment to customer</span>
+          </div>
+          <div class="router-footer">
+            <span>All paths → Airtable log with Ticket_ID + SLA_Deadline</span>
+          </div>
+        </div>
+
+        <div class="screenshot-grid single">
+          <figure>
+            <img src="assets/images/p3-makecom.png" alt="Make.com scenario screenshot" />
+            <figcaption>Make.com scenario — router with 4 priority paths</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Airtable Tracking Database</h2>
+        <p>Every ticket is logged automatically with a generated Ticket_ID, timestamp, SLA deadline, assigned agent, and
+          resolution tracking — creating an audit trail that didn't exist in the shared inbox model.</p>
+        <div class="screenshot-grid single">
+          <figure>
+            <img src="assets/images/p3-airtable.png" alt="Airtable database screenshot" />
+            <figcaption>Airtable — 25 tickets with full routing and status tracking</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Business Impact</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <span class="impact-num">60 sec</span>
+            <span class="impact-label">Auto-acknowledgment to customer</span>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num">100%</span>
+            <span class="impact-label">Tickets logged with SLA tracking</span>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num">0</span>
+            <span class="impact-label">Manual triage steps required</span>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num">Instant</span>
+            <span class="impact-label">Critical escalation to on-call team</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-nav">
+        <a href="project2.html" class="btn btn-ghost">← Previous project</a>
+        <a href="project4.html" class="btn btn-primary">Next project →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Omotara (Tara) Suleiman · Ontario, Canada · Open to roles January 2027</p>
+      <div class="footer-links">
+        <a href="mailto:omotara.suleiman@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/omotarasuleiman" target="_blank">LinkedIn</a>
+        <a href="https://github.com/babytaraa" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B Lead Management System — Tara Suleiman</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Tara Suleiman</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-mobile" id="mobileMenu">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <div class="container">
+      <a href="index.html#projects" class="back-link">← All projects</a>
+      <p class="section-eyebrow">Project 01 · B2B SaaS · RevOps</p>
+      <h1>SentinelSec Pipeline:<br>B2B Lead Intake & Routing</h1>
+      <p class="project-hero-sub">Automated lead management system eliminating manual data entry, scoring leads
+        algorithmically, and surfacing SLA breach alerts in a 3-page Power BI executive dashboard.</p>
+      <div class="project-meta">
+        <div class="meta-item"><span class="meta-label">Stack</span><span>Power BI · Zapier · Google Sheets · DAX</span>
+        </div>
+        <div class="meta-item"><span class="meta-label">Roles targeted</span><span>BI Analyst · RevOps Analyst · Sales
+            Operations</span></div>
+        <div class="meta-item"><span class="meta-label">Type</span><span>End-to-end automation + dashboard</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container project-content">
+
+      <div class="project-section">
+        <h2>The Problem</h2>
+        <p>SentinelSec, a B2B SaaS cybersecurity company, was losing high-value enterprise opportunities to a broken
+          intake process. Inbound leads were logged manually with no prioritization — a 5-person startup and a
+          500-person enterprise account sat in the same queue. Response times routinely exceeded the company's 24-hour
+          SLA, and leadership had zero visibility into where the pipeline was breaking down.</p>
+        <p>In B2B sales, response speed correlates directly with conversion. Without a system to flag, score, and route
+          leads automatically, SentinelSec was structurally guaranteed to keep losing deals to slow follow-up.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>The Solution</h2>
+        <p>A zero-touch data pipeline that removes manual entry entirely and layers in automated scoring, routing, and
+          real-time monitoring.</p>
+        <div class="pipeline-flow">
+          <div class="pipeline-step">
+            <span class="pipeline-icon">📋</span>
+            <span class="pipeline-label">Google Forms</span>
+            <span class="pipeline-desc">Lead intake</span>
+          </div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">
+            <span class="pipeline-icon">⚡</span>
+            <span class="pipeline-label">Zapier</span>
+            <span class="pipeline-desc">Middleware routing</span>
+          </div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">
+            <span class="pipeline-icon">🗄️</span>
+            <span class="pipeline-label">Google Sheets</span>
+            <span class="pipeline-desc">Staging database</span>
+          </div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">
+            <span class="pipeline-icon">🧮</span>
+            <span class="pipeline-label">Scoring Engine</span>
+            <span class="pipeline-desc">Algorithm</span>
+          </div>
+          <span class="pipeline-arrow">→</span>
+          <div class="pipeline-step">
+            <span class="pipeline-icon">📊</span>
+            <span class="pipeline-label">Power BI</span>
+            <span class="pipeline-desc">3-page dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>The Scoring Algorithm</h2>
+        <p>A multi-variable composite score capped at 100, built with nested IF/AND/REGEX logic evaluating four
+          dimensions at intake:</p>
+        <div class="score-table">
+          <div class="score-row header">
+            <span>Signal</span><span>Logic</span><span>Points</span>
+          </div>
+          <div class="score-row">
+            <span>Firmographics</span><span>Company size tier (1-50 / 51-200 / 200+)</span><span
+              class="score-pts">60</span>
+          </div>
+          <div class="score-row">
+            <span>Intent</span><span>Length and detail of primary challenge response</span><span
+              class="score-pts">15</span>
+          </div>
+          <div class="score-row">
+            <span>Domain Authority</span><span>Corporate email vs. free providers</span><span
+              class="score-pts">15</span>
+          </div>
+          <div class="score-row">
+            <span>Timing</span><span>Submitted during business hours</span><span class="score-pts">10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Dashboard — 3 Pages</h2>
+        <div class="dashboard-pages">
+          <div class="dash-page">
+            <span class="dash-num">Page 1</span>
+            <h4>Executive Overview</h4>
+            <p>Total lead volume, pipeline conversion rates, company tier distribution, leads over time.</p>
+          </div>
+          <div class="dash-page">
+            <span class="dash-num">Page 2</span>
+            <h4>Sales Ops / Response Time</h4>
+            <p>Avg response time KPI, SLA breach count, color-coded breach queue, response time by company tier.</p>
+          </div>
+          <div class="dash-page">
+            <span class="dash-num">Page 3</span>
+            <h4>Lead Quality / Scoring</h4>
+            <p>Score distribution, avg score by tier, Top 10 priority queue sorted by conversion likelihood.</p>
+          </div>
+        </div>
+
+        <!-- REPLACE THESE SRC PATHS WITH YOUR ACTUAL SCREENSHOT FILES -->
+        <div class="screenshot-grid">
+          <figure>
+            <img src="assets/images/p1-overview.png" alt="Executive Overview dashboard" />
+            <figcaption>Page 1 — Executive Overview</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/p1-response.png" alt="Sales Ops Response Time dashboard" />
+            <figcaption>Page 2 — Sales Ops / Response Time</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/p1-scoring.png" alt="Lead Quality Scoring dashboard" />
+            <figcaption>Page 3 — Lead Quality / Scoring</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Business Impact</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <span class="impact-num">100%</span>
+            <span class="impact-label">Manual data entry eliminated</span>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num">Real-time</span>
+            <span class="impact-label">Lead routing cycle time</span>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num">10+ hrs</span>
+            <span class="impact-label">Operational overhead saved weekly</span>
+          </div>
+          <div class="impact-card">
+            <span class="impact-num">Instant</span>
+            <span class="impact-label">SLA breach visibility</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-nav">
+        <a href="index.html#projects" class="btn btn-ghost">← All projects</a>
+        <a href="project2.html" class="btn btn-primary">Next project →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Omotara (Tara) Suleiman · Ontario, Canada · Open to roles January 2027</p>
+      <div class="footer-links">
+        <a href="mailto:omotara.suleiman@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/omotarasuleiman" target="_blank">LinkedIn</a>
+        <a href="https://github.com/babytaraa" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

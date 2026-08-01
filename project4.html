@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Conversion Prediction — Tara Suleiman</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Tara Suleiman</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-mobile" id="mobileMenu">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <div class="container">
+      <a href="index.html#projects" class="back-link">← All projects</a>
+      <p class="section-eyebrow">Project 04 · B2B SaaS · Predictive ML</p>
+      <h1>Lead Conversion<br>Prediction Model</h1>
+      <p class="project-hero-sub">Binary classification model ranking B2B leads by predicted conversion probability —
+        replacing manual priority tiers with a machine-learned probability score from 0 to 100%.</p>
+      <div class="project-meta">
+        <div class="meta-item"><span class="meta-label">Stack</span><span>Python · scikit-learn · pandas · Random
+            Forest</span></div>
+        <div class="meta-item"><span class="meta-label">Roles targeted</span><span>Data Analyst · Data Scientist ·
+            RevOps Analyst</span></div>
+        <div class="meta-item"><span class="meta-label">Result</span><span>Random Forest AUC 0.648</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container project-content">
+
+      <div class="project-section">
+        <h2>The Problem</h2>
+        <p>The rule-based lead scoring system in Project 1 assigns priority tiers — Low, Medium, High. But a tier label
+          doesn't tell a sales rep how likely a lead is to convert, only that it should be called before others.</p>
+        <p>This project replaces tier-based prioritization with a machine learning model that outputs a probability
+          score for each incoming lead, so reps can sort their daily queue by predicted conversion likelihood rather
+          than a manual label.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Dataset</h2>
+        <p>150 B2B leads from the SentinelSec pipeline (28 historical + 122 synthetic to reach modeling scale), each
+          with intake signals and known conversion outcomes.</p>
+        <div class="dataset-stats">
+          <div class="ds-stat"><span class="ds-num">150</span><span class="ds-label">Total leads</span></div>
+          <div class="ds-stat"><span class="ds-num">25.3%</span><span class="ds-label">Conversion rate</span></div>
+          <div class="ds-stat"><span class="ds-num">38</span><span class="ds-label">Closed-Won</span></div>
+          <div class="ds-stat"><span class="ds-num">2</span><span class="ds-label">Features used</span></div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Key EDA Finding: Multicollinearity</h2>
+        <p>Lead_Score_Cal and Company_Size_Num have a <strong>0.96 correlation</strong> — near-perfect collinearity. The
+          scoring formula from Project 1 weights company size at 60/100 points, making the score a mathematical
+          derivative of company size. Using both would feed the model the same information twice.</p>
+        <p><strong>Decision:</strong> Drop Company_Size_Num, keep Lead_Score_Cal (continuous, 51 unique values vs 3
+          ordinal levels).</p>
+        <div class="feature-table">
+          <div class="feat-row header"><span>Feature</span><span>Status</span><span>Reason</span></div>
+          <div class="feat-row kept"><span>Lead_Score_Cal</span><span>✓ Kept</span><span>Continuous, 51 unique values,
+              strong signal</span></div>
+          <div class="feat-row kept"><span>Response_Time_Hours</span><span>✓ Kept</span><span>Independent predictor,
+              real variance</span></div>
+          <div class="feat-row dropped"><span>Company_Size_Num</span><span>✗ Dropped</span><span>0.96 correlation with
+              Lead_Score_Cal</span></div>
+          <div class="feat-row dropped"><span>Business_Hours</span><span>✗ Dropped</span><span>0.02 correlation with
+              target</span></div>
+          <div class="feat-row dropped"><span>Corporate_Email</span><span>✗ Dropped</span><span>148/150 rows identical —
+              no variance</span></div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Model Results</h2>
+        <div class="model-comparison">
+          <div class="model-card model-loser">
+            <h4>Logistic Regression</h4>
+            <span class="model-auc">AUC 0.568</span>
+            <p>Majority class collapse — predicted zero conversions across the entire test set. A known phenomenon when
+              class imbalance meets limited feature signal.</p>
+          </div>
+          <div class="model-card model-winner">
+            <h4>Random Forest ✓</h4>
+            <span class="model-auc">AUC 0.648</span>
+            <p>Recommended. Avoids collapse by learning non-linear decision boundaries. Better ranking of converted
+              leads above non-converted ones.</p>
+          </div>
+        </div>
+
+        <div class="screenshot-grid">
+          <figure>
+            <img src="assets/images/p4-evaluation.png" alt="Model evaluation ROC curves and confusion matrices" />
+            <figcaption>ROC curves and confusion matrices — Logistic Regression vs Random Forest</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/p4-importance.png" alt="Feature importance chart" />
+            <figcaption>Feature importance — Lead_Score_Cal dominates at 56.3%</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Feature Insights</h2>
+        <div class="insight-grid">
+          <div class="insight">
+            <h4>Lead_Score_Cal — 56.3% importance</h4>
+            <p>The ML model independently confirmed the same signal the rule-based scoring system weighted most heavily
+              in Project 1 — without being told the scoring formula. This cross-validates both approaches through
+              entirely different methodologies.</p>
+          </div>
+          <div class="insight">
+            <h4>Response_Time_Hours — 43.7% importance</h4>
+            <p>Negative coefficient in Logistic Regression — longer wait times decrease conversion probability. This
+              provides data-backed evidence for the 24-hour SLA target built in Project 1.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>The Output: Ranked Priority Queue</h2>
+        <p>The model scores every lead by predicted conversion probability. A sales rep opening their dashboard each
+          morning sorts by this column — highest probability first — and calls accordingly. No manual judgment required.
+        </p>
+
+        <div class="top10-table">
+          <div class="t10-row t10-header">
+            <span>#</span><span>Company</span><span>Size</span><span>Score</span><span>Conversion Probability</span>
+          </div>
+          <div class="t10-row"><span>1</span><span>Mint Technologies</span><span>200+</span><span>86</span><span
+              class="t10-prob">56.1%</span></div>
+          <div class="t10-row"><span>2</span><span>Quark Industries</span><span>200+</span><span>88</span><span
+              class="t10-prob">55.1%</span></div>
+          <div class="t10-row"><span>3</span><span>BioPharma Labs</span><span>200+</span><span>90</span><span
+              class="t10-prob">55.0%</span></div>
+          <div class="t10-row"><span>4</span><span>Prism Pro</span><span>200+</span><span>87</span><span
+              class="t10-prob">54.2%</span></div>
+          <div class="t10-row"><span>5</span><span>Wraith Technologies</span><span>200+</span><span>95</span><span
+              class="t10-prob">53.4%</span></div>
+        </div>
+        <p class="table-note">Top 5 of 10 shown. All 200+ enterprise accounts with lead scores 86–95.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Honest Assessment</h2>
+        <p>Trained on 150 leads with a 30-row test set. Methodology is sound; scale is portfolio-appropriate. A
+          production deployment would require 300–500 historical conversions and monthly retraining as new outcomes
+          accumulate. The pipeline supports this with minimal code changes.</p>
+        <p>The Logistic Regression collapse is documented transparently — it demonstrates understanding of model
+          behavior on imbalanced data, not a flaw in the approach.</p>
+      </div>
+
+      <div class="project-nav">
+        <a href="project3.html" class="btn btn-ghost">← Previous project</a>
+        <a href="about.html" class="btn btn-primary">About me →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Omotara (Tara) Suleiman · Ontario, Canada · Open to roles January 2027</p>
+      <div class="footer-links">
+        <a href="mailto:omotara.suleiman@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/omotarasuleiman" target="_blank">LinkedIn</a>
+        <a href="https://github.com/babytaraa" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

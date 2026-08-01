@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Tara Suleiman</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    .contact-hero {
+      background: var(--black-deep);
+      padding: 6rem 0 4rem;
+    }
+
+    .contact-hero h1 {
+      color: var(--white);
+      margin-top: 1rem;
+    }
+
+    .contact-hero p {
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 520px;
+      margin-top: 1rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+      padding: 5rem 0;
+    }
+
+    .contact-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--purple);
+    }
+
+    .contact-info-value {
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .contact-info-value a {
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .contact-info-value a:hover {
+      color: var(--purple);
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border: 1.5px solid var(--grey-lt);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: all 0.2s;
+      font-family: var(--font-display);
+    }
+
+    .social-btn:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+
+    .contact-availability {
+      margin-top: 2.5rem;
+      padding: 1.25rem;
+      background: var(--purple-dim);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--purple);
+    }
+
+    .contact-availability p {
+      font-size: 0.86rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .contact-availability strong {
+      color: var(--purple);
+    }
+
+    .contact-form-wrapper h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grey);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--grey-lt);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover {
+      background: var(--purple);
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--grey);
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    .form-note a {
+      color: var(--purple);
+    }
+
+    @media (max-width: 768px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Tara Suleiman</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-mobile" id="mobileMenu">
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-hero">
+    <div class="container">
+      <p class="section-eyebrow light">Contact</p>
+      <h1>Let's talk.</h1>
+      <p>I'm actively looking for Data Analyst, BI Analyst, RevOps, and related roles starting January 2027. Whether
+        you're a recruiter, a hiring manager, or just want to connect — I'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="contact-layout">
+
+      <div class="contact-info">
+        <h3>Direct contact</h3>
+
+        <div class="contact-info-item">
+          <span class="contact-info-label">Email</span>
+          <span class="contact-info-value"><a
+              href="mailto:omotara.suleiman@gmail.com">omotara.suleiman@gmail.com</a></span>
+        </div>
+
+        <div class="contact-info-item">
+          <span class="contact-info-label">Location</span>
+          <span class="contact-info-value">Ontario, Canada · Open to remote</span>
+        </div>
+
+        <div class="contact-info-item">
+          <span class="contact-info-label">Availability</span>
+          <span class="contact-info-value">Graduating December 2026 · Available January 2027</span>
+        </div>
+
+        <div class="contact-socials">
+          <a href="https://linkedin.com/in/omotarasuleiman" class="social-btn" target="_blank">LinkedIn</a>
+          <a href="https://github.com/babytaraa" class="social-btn" target="_blank">GitHub</a>
+          <a href="assets/Tara_Suleiman_Resume.pdf" class="social-btn" target="_blank">Resume PDF</a>
+        </div>
+
+        <div class="contact-availability">
+          <p><strong>Currently open to:</strong> Data Analyst · BI Analyst · RevOps Analyst · Business Analyst · QA
+            Analyst · Sales Operations · Junior Developer roles starting January 2027.</p>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h3>Send a message</h3>
+        <!--
+          SETUP: Sign up free at formspree.io, create a form,
+          and replace "YOUR_FORM_ID" below with your actual form ID.
+          Example: action="https://formspree.io/f/xpwzjgkd"
+        -->
+        <form action="https://formspree.io/f/xzdnlbbd" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select a reason...</option>
+              <option value="Job Opportunity">Job Opportunity</option>
+              <option value="Internship">Internship or Co-op</option>
+              <option value="Collaboration">Project Collaboration</option>
+              <option value="General">General Enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company (optional)</label>
+            <input type="text" id="company" name="company" placeholder="Your company or organization" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message"
+              placeholder="Tell me about the opportunity or what you'd like to discuss..." required></textarea>
+          </div>
+
+          <!-- Honeypot spam prevention -->
+          <input type="text" name="_gotcha" style="display:none" />
+
+          <button type="submit" class="form-submit">Send Message →</button>
+          <p class="form-note">Or email directly at <a
+              href="mailto:omotara.suleiman@gmail.com">omotara.suleiman@gmail.com</a>. Form powered by <a
+              href="https://formspree.io" target="_blank">Formspree</a> — free for static sites.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Omotara (Tara) Suleiman · Ontario, Canada · Open to roles January 2027</p>
+      <div class="footer-links">
+        <a href="mailto:omotara.suleiman@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/omotarasuleiman" target="_blank">LinkedIn</a>
+        <a href="https://github.com/babytaraa" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
